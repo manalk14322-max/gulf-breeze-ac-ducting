@@ -52,7 +52,13 @@ export default function TrustProofSection() {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4" data-reveal>
           {[ASSET_PATHS.clientPackageUnit, ASSET_PATHS.clientCeilingDucting, ASSET_PATHS.clientIndustrialNetwork].map((image, idx) => (
             <div key={image} className="premium-card relative h-48 overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
-              <img src={image} alt={`Gulf Breeze real HVAC project ${idx + 1}`} className="w-full h-full object-cover" />
+              <img
+                src={image}
+                alt={`Gulf Breeze real HVAC project ${idx + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <span className="absolute left-4 bottom-4 text-[10px] font-black uppercase tracking-widest text-white">
                 Real Project Proof

@@ -136,6 +136,8 @@ export default function ProjectsSection() {
                   alt={proj.title} 
                   className="w-full h-full object-cover group-hover:scale-104 transition duration-500 select-none"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Visual shade covering */}
@@ -203,6 +205,8 @@ export default function ProjectsSection() {
                   alt={proj.title}
                   className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 <div className="absolute left-4 right-4 bottom-4">
@@ -240,6 +244,7 @@ export default function ProjectsSection() {
               <button 
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-full cursor-pointer"
+                aria-label="Close project details"
                 id="close-blueprint-btn"
               >
                 <X className="w-5 h-5" />
@@ -280,7 +285,14 @@ export default function ProjectsSection() {
               {/* Right-hand column: Image preview & layout */}
               <div className="flex-1 flex flex-col justify-between">
                 <div className="rounded-2xl overflow-hidden border border-slate-850 aspect-video md:aspect-square bg-slate-900 shadow-inner">
-                  <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover select-none" referrerPolicy="no-referrer" />
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover select-none"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <button 
                   onClick={() => setSelectedProject(null)}

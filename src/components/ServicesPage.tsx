@@ -98,6 +98,8 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                 src={ASSET_PATHS.aboutTechnicians}
                 alt="HVAC technicians inspecting a system"
                 className="absolute inset-0 w-full h-full object-cover opacity-75"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-slate-950/10" />
               <div className="relative z-10 p-5 sm:p-8 max-w-sm text-left">
@@ -121,9 +123,11 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
 
             <div className="premium-card relative min-h-[250px] sm:min-h-[280px] rounded-2xl overflow-hidden bg-blue-950 text-white shadow-lg" data-reveal style={{ '--reveal-delay': '120ms' } as CSSProperties}>
               <img
-                src={ASSET_PATHS.heroChiller}
+                src={ASSET_PATHS.clientPackageUnit}
                 alt="Commercial chiller system"
                 className="absolute inset-0 w-full h-full object-cover opacity-70"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/75 to-blue-950/20" />
               <div className="relative z-10 p-5 sm:p-8 max-w-sm text-left">
@@ -157,6 +161,8 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                   src={ASSET_PATHS.aboutDuctwork}
                   alt="Precision ductwork fabrication"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="relative mt-4 sm:absolute sm:-bottom-6 sm:right-8 bg-white rounded-2xl border border-slate-100 shadow-xl p-4 sm:max-w-[220px]">
@@ -247,13 +253,15 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                   <img
                     src={
                       index % 3 === 0
-                        ? ASSET_PATHS.heroChiller
+                        ? ASSET_PATHS.clientPackageUnit
                         : index % 3 === 1
                           ? ASSET_PATHS.aboutTechnicians
                           : ASSET_PATHS.aboutDuctwork
                     }
                     alt={service.title}
                     className="w-full h-full object-cover opacity-80"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                   <div className="premium-icon absolute top-3 left-3 w-10 h-10 rounded-full bg-white text-blue-650 flex items-center justify-center shadow-sm">

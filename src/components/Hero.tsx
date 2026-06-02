@@ -82,11 +82,13 @@ export default function Hero({ onOpenQuote }: HeroProps) {
           <div className="lg:col-span-6 relative animate-scaleUp">
             <div className="premium-card float-soft relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl aspect-video sm:aspect-4/3 lg:aspect-square group bg-slate-800">
               <img 
-                src={ASSET_PATHS.heroChiller} 
+                src={ASSET_PATHS.clientPackageUnit} 
                 alt="Gulf Breeze AC installation and ducting services in UAE" 
                 className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 select-none"
                 referrerPolicy="no-referrer"
                 id="hero-main-chiller-img"
+                fetchPriority="high"
+                decoding="async"
               />
               
               {/* Image dark/light overlay details */}

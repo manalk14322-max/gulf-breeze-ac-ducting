@@ -43,7 +43,7 @@ export const localBusinessSchema = {
   '@id': `${SITE_URL}/#business`,
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/gulf-breeze-logo.png`,
+  logo: `${SITE_URL}/gulf-breeze-logo-512.png`,
   image: `${SITE_URL}/assets/client-work/industrial-package-unit-platform.jpeg`,
   telephone: CONTACT_PHONE_DISPLAY,
   email: CONTACT_EMAIL,

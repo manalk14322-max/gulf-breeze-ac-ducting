@@ -26,7 +26,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="bg-[#000d22] text-slate-400 border-t border-slate-900 font-sans">
+    <footer id="contact" className="bg-[#000d22] text-slate-300 border-t border-slate-900 font-sans">
       
       {/* Top Main Grid Layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -37,29 +37,33 @@ export default function Footer() {
             <div className="flex items-center gap-2 min-w-0">
               <div className="premium-logo w-12 h-12 rounded-full bg-slate-950 border border-blue-800 overflow-hidden flex items-center justify-center">
                 <img
-                  src={`${import.meta.env.BASE_URL}gulf-breeze-logo.png`}
+                  src={`${import.meta.env.BASE_URL}gulf-breeze-logo-192.png`}
                   alt="Gulf Breeze AC & Ducting logo"
                   className="w-full h-full object-cover"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <span className="text-md font-black text-white uppercase tracking-tight leading-tight">
                 Gulf Breeze AC & Ducting
               </span>
             </div>
-            <p className="text-slate-500 text-xs leading-relaxed">
+            <p className="text-slate-300 text-xs leading-relaxed">
               Delivering AC installation, AC repair, GI and PI ducting, copper pipe welding, duct insulation and annual HVAC maintenance services across Dubai, Sharjah, Umm Al Quwain and the UAE.
             </p>
             <div className="flex gap-3 pt-2">
-              <a href="#" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-500">
+              <a href="#/" aria-label="Gulf Breeze Facebook" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-300">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-500">
+              <a href="#/" aria-label="Gulf Breeze Twitter" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-300">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-500">
+              <a href="#/" aria-label="Gulf Breeze Instagram" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-300">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-500">
+              <a href="#/" aria-label="Gulf Breeze LinkedIn" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-300">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -161,14 +165,14 @@ export default function Footer() {
       </div>
 
       {/* Under Footer Bottom Bar */}
-      <div className="border-t border-slate-900 bg-[#000a1a] py-6 text-slate-600 text-xs" id="footer-copyright-bar">
+      <div className="border-t border-slate-900 bg-[#000a1a] py-6 text-slate-300 text-xs" id="footer-copyright-bar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-center sm:text-left text-[11px] font-sans">
             © {new Date().getFullYear()} Gulf Breeze AC & Ducting. All Rights Reserved.
           </p>
-          <div className="flex gap-6 uppercase tracking-wider text-[10px] font-semibold text-slate-500">
-            <a href="#" className="hover:text-blue-500">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-500">Terms & Conditions</a>
+          <div className="flex gap-6 uppercase tracking-wider text-[10px] font-semibold text-slate-300">
+            <a href="#/" className="hover:text-blue-400">Privacy Policy</a>
+            <a href="#/" className="hover:text-blue-400">Terms & Conditions</a>
           </div>
         </div>
       </div>

@@ -78,7 +78,9 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
                   poster={ASSET_PATHS.clientPackageUnit}
                   className="w-full h-full object-cover select-none"
                   controls
-                  preload="metadata"
+                  preload="none"
+                  muted
+                  playsInline
                 />
                 <div className="absolute inset-0 bg-blue-900/10 pointer-events-none" />
                 

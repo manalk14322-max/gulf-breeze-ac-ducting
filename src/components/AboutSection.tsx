@@ -54,7 +54,7 @@ export default function AboutSection() {
               </div>
               
               {/* Elegant script signature mockup */}
-              <div className="text-2xl font-semibold text-blue-650 opacity-80 select-none tracking-widest" style={{ fontFamily5: '"Playfair Display", serif' }}>
+              <div className="text-2xl font-semibold text-blue-650 opacity-80 select-none tracking-widest" style={{ fontFamily: 'serif' }}>
                 <span className="italic transform -rotate-6 inline-block font-serif text-3xl select-none text-blue-750">Gulf Breeze Team</span>
               </div>
             </div>
@@ -71,6 +71,8 @@ export default function AboutSection() {
                   alt="Certified HVAC technician inspecting AC and ducting systems" 
                   className="w-full h-full object-cover select-none"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
                 <span className="absolute bottom-3 left-3 bg-white/90 text-slate-900 text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm">
@@ -85,6 +87,8 @@ export default function AboutSection() {
                   alt="GI and PI duct fabrication workshop in UAE" 
                   className="w-full h-full object-cover select-none"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
                 <span className="absolute bottom-3 left-3 bg-white/90 text-slate-900 text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm">

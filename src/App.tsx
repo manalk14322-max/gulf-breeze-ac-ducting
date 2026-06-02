@@ -97,6 +97,8 @@ function PageHeader({
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-20"
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-blue-950/70" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left" data-reveal>
@@ -139,6 +141,8 @@ function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
                   src={ASSET_PATHS.contactPipesBg}
                   alt="Industrial HVAC pipework"
                   className="w-full h-full object-cover opacity-80"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white text-left">
@@ -246,7 +250,7 @@ export default function App() {
     upsertMeta('og:type', 'website', 'property');
     upsertMeta('og:url', canonical, 'property');
     upsertMeta('og:site_name', SITE_NAME, 'property');
-    upsertMeta('og:image', `${SITE_URL}/gulf-breeze-logo.png`, 'property');
+    upsertMeta('og:image', `${SITE_URL}/gulf-breeze-logo-512.png`, 'property');
     upsertMeta('twitter:card', 'summary_large_image');
     upsertMeta('twitter:title', seo.title);
     upsertMeta('twitter:description', seo.description);
@@ -324,6 +328,14 @@ export default function App() {
         'google_translate_element',
       );
     };
+
+    const cookieMatch = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    const translateValue = cookieMatch ? decodeURIComponent(cookieMatch[1]) : '/en/en';
+    const selectedLanguage = translateValue.split('/').filter(Boolean).pop() || 'en';
+
+    if (selectedLanguage === 'en') {
+      return;
+    }
 
     if (!document.getElementById('google-translate-script')) {
       const script = document.createElement('script');

@@ -98,9 +98,12 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           <a href="#/" className="flex items-center gap-2 sm:gap-3 group animate-fadeIn min-w-0" id="navbar-logo-brand">
             <div className="premium-logo relative flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-950 border border-blue-200 overflow-hidden shadow-sm shrink-0">
               <img
-                src={`${import.meta.env.BASE_URL}gulf-breeze-logo.png`}
+                src={`${import.meta.env.BASE_URL}gulf-breeze-logo-192.png`}
                 alt="Gulf Breeze AC & Ducting logo"
                 className="w-full h-full object-cover"
+                width="44"
+                height="44"
+                decoding="async"
               />
             </div>
             <div className="min-w-0">
@@ -145,6 +148,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
               aria-expanded={isOpen}
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               id="mobile-menu-toggle-btn"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -173,9 +177,12 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           <div className="flex items-center gap-2">
             <div className="premium-logo w-10 h-10 rounded-full bg-slate-950 border border-blue-200 overflow-hidden flex items-center justify-center">
               <img
-                src={`${import.meta.env.BASE_URL}gulf-breeze-logo.png`}
+                src={`${import.meta.env.BASE_URL}gulf-breeze-logo-192.png`}
                 alt="Gulf Breeze AC & Ducting logo"
                 className="w-full h-full object-cover"
+                width="40"
+                height="40"
+                decoding="async"
               />
             </div>
             <span className="text-sm font-black text-slate-900 uppercase">Gulf Breeze</span>
@@ -183,6 +190,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           <button 
             onClick={() => setIsOpen(false)}
             className="p-1 rounded-full text-slate-400 hover:text-slate-600"
+            aria-label="Close navigation menu"
             id="close-mobile-drawer-btn"
           >
             <X className="w-5 h-5" />
