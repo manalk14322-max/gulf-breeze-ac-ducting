@@ -162,9 +162,9 @@
       .cover-photo {
         position: absolute;
         right: 18mm;
-        bottom: 50mm;
-        width: 86mm;
-        height: 72mm;
+        bottom: 33mm;
+        width: 82mm;
+        height: 63mm;
         border-radius: 24px;
         object-fit: cover;
         border: 1px solid rgba(255,255,255,0.2);
@@ -174,15 +174,19 @@
       .meta-strip {
         position: absolute;
         left: 18mm;
-        bottom: 40mm;
+        bottom: 50mm;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
-        width: 84mm;
+        width: 45mm;
       }
 
       .meta-card {
-        padding: 12px;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
         border: 1px solid rgba(255,255,255,0.12);
         border-radius: 14px;
         background: rgba(255,255,255,0.06);
@@ -191,7 +195,7 @@
       .meta-card strong {
         display: block;
         color: #fff;
-        font-size: 17px;
+        font-size: 18px;
       }
 
       .meta-card span {
