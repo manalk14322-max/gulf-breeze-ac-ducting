@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
-import { CLIENT_WORK_MEDIA, PROJECTS } from '../data';
+import { PROJECTS } from '../data';
 import { Project } from '../types';
 import { ArrowRight, MapPin, Eye, Building2, Wind, ShieldAlert, CheckCircle, X } from 'lucide-react';
 
@@ -164,33 +164,60 @@ export default function ProjectsSection() {
           </div>
         )}
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 items-stretch" data-reveal>
-          <div className="rounded-3xl overflow-hidden bg-slate-950 border border-slate-900 shadow-xl">
-            <video
-              className="w-full h-full min-h-[280px] object-cover"
-              src={CLIENT_WORK_MEDIA.video}
-              poster={CLIENT_WORK_MEDIA.poster}
-              controls
-              preload="metadata"
-            />
-          </div>
-          <div className="bg-[#001b44] text-white rounded-3xl p-6 sm:p-8 text-left flex flex-col justify-center relative overflow-hidden">
-            <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-blue-500/20 blur-3xl" />
-            <span className="relative text-[10px] font-mono font-bold uppercase tracking-widest text-blue-300">
-              Real Site Media
-            </span>
-            <h3 className="relative text-2xl sm:text-3xl font-black uppercase tracking-tight mt-3">
-              Client Work Gallery
-            </h3>
-            <p className="relative text-sm text-slate-300 leading-relaxed mt-3">
-              Actual package unit, GI ducting, PI ducting, repair and installation work captured from active UAE project sites.
-            </p>
-            <div className="relative grid grid-cols-2 gap-3 mt-6 text-xs text-slate-200">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Package unit installation</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Warehouse ducting</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">GI duct fabrication</div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Duct repair support</div>
+        <div className="mt-16 bg-[#001b44] text-white rounded-3xl p-5 sm:p-8 lg:p-10 text-left relative overflow-hidden" data-reveal>
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_20%,#35b8ff,transparent_30%),linear-gradient(135deg,transparent,#000d22)] pointer-events-none" />
+          <div className="relative flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-8">
+            <div>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-300">
+                Real Site Media
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mt-3">
+                Client Work Gallery
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed mt-3 max-w-2xl">
+                Actual package unit, GI ducting, PI ducting, repair and installation work captured from active UAE project sites.
+              </p>
             </div>
+            <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-200 lg:min-w-[360px]">
+              {['Package Units', 'GI / PI Ducting', 'Repair Work', 'Site Installation'].map((item) => (
+                <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-center font-bold uppercase tracking-wide">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PROJECTS.map((proj, idx) => (
+              <button
+                key={`client-gallery-${proj.id}`}
+                onClick={() => setSelectedProject(proj)}
+                className={`premium-card group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900 text-left shadow-lg cursor-pointer ${
+                  idx === 0 || idx === 3 ? 'lg:row-span-2 min-h-[360px]' : 'min-h-[210px]'
+                }`}
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 70}ms` } as CSSProperties}
+              >
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                <div className="absolute left-4 right-4 bottom-4">
+                  <span className="text-[9px] font-bold font-mono tracking-widest text-blue-300 uppercase bg-blue-950/70 px-2 py-1 rounded-sm">
+                    {proj.category}
+                  </span>
+                  <h4 className="mt-2 text-sm font-black uppercase tracking-tight text-white leading-tight">
+                    {proj.title}
+                  </h4>
+                  <p className="mt-1 text-[11px] text-slate-300 flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-red-400 shrink-0" /> {proj.location}
+                  </p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 
