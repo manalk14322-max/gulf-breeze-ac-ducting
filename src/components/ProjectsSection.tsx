@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
-import { PROJECTS } from '../data';
+import { CLIENT_WORK_MEDIA, PROJECTS } from '../data';
 import { Project } from '../types';
 import { ArrowRight, MapPin, Eye, Building2, Wind, ShieldAlert, CheckCircle, X } from 'lucide-react';
 
@@ -24,43 +24,51 @@ export default function ProjectsSection() {
     switch (projId) {
       case 'proj-1':
         return {
-          capacity: '450 TR (Thermal Rating)',
-          chillerBrand: 'DAIKIN VRF IV Inverters',
-          ductSize: '18,500 Sq Ft GI supply system',
-          ventilation: 'Fresh air induction systems with heat recover wheels',
-          challenges: 'High solar heat absorption profile cured by custom double glazing loads.'
+          capacity: 'Package unit support platform',
+          chillerBrand: 'Commercial package cooling unit',
+          ductSize: 'Outdoor unit placement and ducting preparation',
+          ventilation: 'Supply and return routing prepared for industrial cooling loads',
+          challenges: 'Safe elevated installation with crane access and working platform coordination.'
         };
       case 'proj-2':
         return {
-          capacity: '850 TR (Centrifugal air chiller)',
-          chillerBrand: 'TRANE helical-rotary chillers',
-          ductSize: '45,000 Sq Ft spiral rigid ventilation lines',
-          ventilation: 'Negative draft safety ventilation ducts for fabrication area',
-          challenges: 'Exhaust grease scrubbing dynamic load management.'
+          capacity: 'Industrial warehouse ducting',
+          chillerBrand: 'Duct AC distribution system',
+          ductSize: 'Ceiling-mounted GI and insulated duct runs',
+          ventilation: 'Multiple supply points arranged for wide-area airflow',
+          challenges: 'Coordinating duct routes around lighting, fire lines, hangers and ceiling structure.'
         };
       case 'proj-3':
         return {
-          capacity: '35 TR (Concealed splits)',
-          chillerBrand: 'SAMSUNG DVM S Eco Smart',
-          ductSize: '3,800 Sq Ft insulated PI ductwork',
-          ventilation: 'Low decibel acoustic acoustic return grilles',
-          challenges: 'Complete architectural concealment within low concrete ceilings.'
+          capacity: 'Custom duct fabrication',
+          chillerBrand: 'GI sheet metal duct section',
+          ductSize: 'Rectangular duct box with framed edges',
+          ventilation: 'Prepared for fixed duct connection and airflow transfer',
+          challenges: 'Maintaining clean joints, correct frame size and durable fabricated finishing.'
         };
       case 'proj-4':
         return {
-          capacity: '1,200 TR (Water Cooled Plant)',
-          chillerBrand: 'CARRIER 19XR Centrifugal chillers',
-          ductSize: '82,000 Sq Ft SMACNA class GI ventilation lines',
-          ventilation: 'VAV (Variable Air Volume) control boxes',
-          challenges: 'Balancing indoor atmospheric pressure cycles across multi-entrance pathways.'
+          capacity: 'Commercial hall ducting',
+          chillerBrand: 'Duct AC and ventilation layout',
+          ductSize: 'Installed overhead ducting with multiple branches',
+          ventilation: 'Balanced supply distribution for open hall coverage',
+          challenges: 'Working during fit-out stage with scaffolding, ceiling height and multiple trades on site.'
         };
       case 'proj-5':
         return {
-          capacity: '800 TR (Water Cooled Plant)',
-          chillerBrand: 'MITSUBISHI City Multi VRF',
-          ductSize: '32,500 Sq Ft dual air distribution lines',
-          ventilation: 'Carbon filter sanitizing ventilation grilles',
-          challenges: 'Maintaining specific humidity boundaries at night.'
+          capacity: 'Duct repair and access work',
+          chillerBrand: 'Existing duct AC system',
+          ductSize: 'Access area repair and duct connection support',
+          ventilation: 'Restored airflow through repaired duct section',
+          challenges: 'Accessing elevated duct runs safely and completing clean repair around existing structure.'
+        };
+      case 'proj-6':
+        return {
+          capacity: 'Installed industrial duct network',
+          chillerBrand: 'Duct AC system',
+          ductSize: 'Overhead GI ducting and air distribution lines',
+          ventilation: 'Supply grilles and duct branches arranged for warehouse coverage',
+          challenges: 'Final alignment, support hangers and airflow routing across a large interior.'
         };
       default:
         return {
@@ -155,6 +163,36 @@ export default function ProjectsSection() {
             ))}
           </div>
         )}
+
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 items-stretch" data-reveal>
+          <div className="rounded-3xl overflow-hidden bg-slate-950 border border-slate-900 shadow-xl">
+            <video
+              className="w-full h-full min-h-[280px] object-cover"
+              src={CLIENT_WORK_MEDIA.video}
+              poster={CLIENT_WORK_MEDIA.poster}
+              controls
+              preload="metadata"
+            />
+          </div>
+          <div className="bg-[#001b44] text-white rounded-3xl p-6 sm:p-8 text-left flex flex-col justify-center relative overflow-hidden">
+            <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-blue-500/20 blur-3xl" />
+            <span className="relative text-[10px] font-mono font-bold uppercase tracking-widest text-blue-300">
+              Real Site Media
+            </span>
+            <h3 className="relative text-2xl sm:text-3xl font-black uppercase tracking-tight mt-3">
+              Client Work Gallery
+            </h3>
+            <p className="relative text-sm text-slate-300 leading-relaxed mt-3">
+              Actual package unit, GI ducting, PI ducting, repair and installation work captured from active UAE project sites.
+            </p>
+            <div className="relative grid grid-cols-2 gap-3 mt-6 text-xs text-slate-200">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Package unit installation</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Warehouse ducting</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">GI duct fabrication</div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Duct repair support</div>
+            </div>
+          </div>
+        </div>
 
         {/* View All Projects Action button */}
         <div className="text-center mt-12">

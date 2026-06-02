@@ -15,6 +15,13 @@ export const ASSET_PATHS = {
   projectOffice: publicPath('assets/images/project_office_1779714329550.png'),
   projectVilla: publicPath('assets/images/project_villa_1779714355444.png'),
   contactPipesBg: publicPath('assets/images/contact_pipes_bg_1779714379116.png'),
+  clientPackageUnit: publicPath('assets/client-work/industrial-package-unit-platform.jpeg'),
+  clientCeilingDucting: publicPath('assets/client-work/warehouse-ducting-ceiling.jpeg'),
+  clientDuctBox: publicPath('assets/client-work/gi-duct-box-fabrication.jpeg'),
+  clientHallDucting: publicPath('assets/client-work/ducting-installation-hall.jpeg'),
+  clientDuctRepair: publicPath('assets/client-work/duct-repair-access.jpeg'),
+  clientIndustrialNetwork: publicPath('assets/client-work/industrial-duct-network.jpeg'),
+  clientSiteVideo: publicPath('assets/client-work/site-ducting-video.mp4'),
   
   // High-quality placeholder fallbacks for other gallery items to ensure zero-broken links
   projectWarehouse: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', // Beautiful modern warehouse with structure
@@ -111,40 +118,52 @@ export const STATS: CompanyStat[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'proj-1',
-    title: 'Office Building',
-    location: 'Dubai, UAE',
-    category: 'Commercial',
-    image: ASSET_PATHS.projectOffice,
+    title: 'Package Unit Platform',
+    location: 'Sharjah Sajaa Industrial Area',
+    category: 'Industrial',
+    image: ASSET_PATHS.clientPackageUnit,
   },
   {
     id: 'proj-2',
-    title: 'Warehouse Facility',
+    title: 'Warehouse Ducting Network',
     location: 'Sharjah, UAE',
     category: 'Industrial',
-    image: ASSET_PATHS.projectWarehouse,
+    image: ASSET_PATHS.clientCeilingDucting,
   },
   {
     id: 'proj-3',
-    title: 'Villa Project',
-    location: 'Dubai, UAE',
-    category: 'Residential',
-    image: ASSET_PATHS.projectVilla,
+    title: 'GI Duct Fabrication',
+    location: 'UAE Workshop Site',
+    category: 'Industrial',
+    image: ASSET_PATHS.clientDuctBox,
   },
   {
     id: 'proj-4',
-    title: 'Shopping Mall',
-    location: 'Abu Dhabi, UAE',
-    category: 'Retail',
-    image: ASSET_PATHS.projectMall,
+    title: 'Industrial Hall Ducting',
+    location: 'UAE Industrial Facility',
+    category: 'Commercial',
+    image: ASSET_PATHS.clientHallDucting,
   },
   {
     id: 'proj-5',
-    title: 'Hotel & Resorts',
-    location: 'Dubai, UAE',
-    category: 'Hospitality',
-    image: ASSET_PATHS.projectHotel,
-  }
+    title: 'Duct Repair & Access Work',
+    location: 'UAE Facility Site',
+    category: 'Commercial',
+    image: ASSET_PATHS.clientDuctRepair,
+  },
+  {
+    id: 'proj-6',
+    title: 'Installed Duct Network',
+    location: 'UAE Warehouse Site',
+    category: 'Industrial',
+    image: ASSET_PATHS.clientIndustrialNetwork,
+  },
 ];
+
+export const CLIENT_WORK_MEDIA = {
+  video: ASSET_PATHS.clientSiteVideo,
+  poster: ASSET_PATHS.clientPackageUnit,
+};
 
 export const BRANDS: Brand[] = [
   { name: 'DAIKIN' },
