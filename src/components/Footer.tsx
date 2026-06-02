@@ -163,7 +163,7 @@ export default function Footer() {
       <div className="border-t border-slate-900 bg-[#000a1a] py-6 text-slate-600 text-xs" id="footer-copyright-bar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-center sm:text-left text-[11px] font-sans">
-            © {new Date().getFullYear()} Gulf Breeze AC & Ducting. All Rights Reserved. Designed for premium GCC engineering.
+            © {new Date().getFullYear()} Gulf Breeze AC & Ducting. All Rights Reserved.
           </p>
           <div className="flex gap-6 uppercase tracking-wider text-[10px] font-semibold text-slate-500">
             <a href="#" className="hover:text-blue-500">Privacy Policy</a>
