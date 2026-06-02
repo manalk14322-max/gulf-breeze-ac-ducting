@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Languages } from 'lucide-react';
 
 interface NavbarProps {
   onOpenQuote: () => void;
@@ -13,6 +13,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenQuote }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [language, setLanguage] = useState('en');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +34,29 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const cookieMatch = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    const value = cookieMatch ? decodeURIComponent(cookieMatch[1]) : '/en/en';
+    const selected = value.split('/').filter(Boolean).pop() || 'en';
+    setLanguage(selected);
+    document.documentElement.dir = selected === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = selected === 'ar' ? 'ar' : selected === 'zh-CN' ? 'zh-CN' : 'en';
+  }, []);
+
+  const setTranslateCookie = (value: string) => {
+    const expires = 'max-age=31536000';
+    document.cookie = `googtrans=${value}; path=/; ${expires}; SameSite=Lax`;
+    document.cookie = `googtrans=${value}; path=/; domain=.gulfbreezeacducting.com; ${expires}; SameSite=Lax`;
+  };
+
+  const handleLanguageChange = (nextLanguage: string) => {
+    setLanguage(nextLanguage);
+    document.documentElement.dir = nextLanguage === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = nextLanguage === 'ar' ? 'ar' : nextLanguage === 'zh-CN' ? 'zh-CN' : 'en';
+    setTranslateCookie(`/en/${nextLanguage}`);
+    window.location.reload();
+  };
+
   const navLinks = [
     { label: 'Home', href: '#/' },
     { label: 'About Us', href: '#/about' },
@@ -41,6 +65,22 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
     { label: 'Why Us', href: '#/why-us' },
     { label: 'Contact Us', href: '#/contact' },
   ];
+
+  const languageSelect = (
+    <label className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 shadow-sm">
+      <Languages className="w-4 h-4 text-blue-650" />
+      <select
+        value={language}
+        onChange={(event) => handleLanguageChange(event.target.value)}
+        className="bg-transparent text-xs font-bold uppercase tracking-wider text-slate-700 outline-none cursor-pointer"
+        aria-label="Select language"
+      >
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+        <option value="zh-CN">Chinese</option>
+      </select>
+    </label>
+  );
 
   return (
     <nav 
@@ -88,7 +128,8 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
 
           {/* Action Trigger Button */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-3">
+            {languageSelect}
             <button 
               onClick={onOpenQuote}
               className="premium-button px-5 py-2.5 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs tracking-wide rounded-lg uppercase flex items-center gap-2 transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
@@ -162,6 +203,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
         </div>
 
         <div className="pt-4 border-t border-slate-100">
+          <div className="mb-3">
+            {languageSelect}
+          </div>
           <button 
             onClick={() => {
               setIsOpen(false);

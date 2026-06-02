@@ -21,6 +21,20 @@ import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
 
 type Page = 'home' | 'about' | 'services' | 'projects' | 'why-us' | 'contact';
 
+declare global {
+  interface Window {
+    googleTranslateElementInit?: () => void;
+    google?: {
+      translate?: {
+        TranslateElement: new (
+          options: Record<string, unknown>,
+          elementId: string,
+        ) => unknown;
+      };
+    };
+  }
+}
+
 const getCurrentPage = (): Page => {
   const hash = window.location.hash.replace('#/', '').replace('#', '');
 
@@ -281,6 +295,28 @@ export default function App() {
     return () => window.removeEventListener('pointermove', handlePointerMove);
   }, []);
 
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      if (!window.google?.translate?.TranslateElement) return;
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,ar,zh-CN',
+          autoDisplay: false,
+        },
+        'google_translate_element',
+      );
+    };
+
+    if (!document.getElementById('google-translate-script')) {
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const handleOpenQuote = (serviceType?: string) => {
     if (serviceType) {
       setSelectedService(serviceType);
@@ -357,6 +393,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-blue-600/10 selection:text-blue-900" id="gulf-breeze-app-root">
       <div className="cursor-glow" aria-hidden="true" />
       <Navbar onOpenQuote={() => handleOpenQuote()} />
+      <div id="google_translate_element" className="hidden" aria-hidden="true" />
 
       <main className="flex-1">
         {renderPage()}
