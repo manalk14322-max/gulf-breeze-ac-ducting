@@ -15,7 +15,7 @@ import ProjectsSection from './components/ProjectsSection';
 import BrandsSection from './components/BrandsSection';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_WHATSAPP } from './contact';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, CONTACT_PHONE_WHATSAPP } from './contact';
 import { ASSET_PATHS } from './data';
 import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
 
@@ -187,6 +187,19 @@ function WhatsAppFloat() {
   );
 }
 
+function CallFloat() {
+  return (
+    <a
+      href={`tel:${CONTACT_PHONE_TEL}`}
+      aria-label={`Call ${CONTACT_PHONE_DISPLAY}`}
+      className="fixed bottom-5 left-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-650 text-white shadow-2xl shadow-blue-900/30 ring-4 ring-white/90 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blue-700 sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
+    >
+      <Phone className="h-7 w-7 sm:h-8 sm:w-8" />
+      <span className="sr-only">Call Gulf Breeze</span>
+    </a>
+  );
+}
+
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('ac-install');
@@ -350,6 +363,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <CallFloat />
       <WhatsAppFloat />
 
       <QuoteModal 
