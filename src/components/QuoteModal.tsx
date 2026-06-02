@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { X, Send, Calculator, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
-import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_WHATSAPP } from '../contact';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_WHATSAPP } from '../contact';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -32,6 +32,7 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [lastRequestMessage, setLastRequestMessage] = useState('');
 
   useEffect(() => {
     if (isOpen) {
@@ -86,6 +87,7 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
     ].filter(Boolean).join('\n');
 
     setIsSubmitted(true);
+    setLastRequestMessage(message);
     window.open(`https://wa.me/${CONTACT_PHONE_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -140,6 +142,12 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
               )}
 
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Gulf Breeze Quote Request')}&body=${encodeURIComponent(lastRequestMessage)}`}
+                  className="px-5 py-2.5 text-xs font-semibold text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Send className="w-4 h-4" /> Email Request
+                </a>
                 <button 
                   onClick={() => window.print()}
                   className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
