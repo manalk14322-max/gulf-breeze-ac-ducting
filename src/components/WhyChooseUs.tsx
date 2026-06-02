@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Check, ShieldCheck, ArrowRight, Play, Server, Clock } from 'lucide-react';
+import { Check, ShieldCheck, ArrowRight } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { ASSET_PATHS } from '../data';
 
@@ -73,11 +73,12 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
               
               {/* Overlapping Large top-left frame */}
               <div className="premium-card col-span-12 rounded-2xl overflow-hidden border-4 border-white shadow-xl aspect-16/10 sm:aspect-16/9 bg-slate-800 group relative">
-                <img 
-                  src={ASSET_PATHS.contactPipesBg} 
-                  alt="Industrial AC distribution headers" 
-                  className="w-full h-full object-cover select-none group-hover:scale-102 transition duration-500"
-                  referrerPolicy="no-referrer"
+                <video
+                  src={ASSET_PATHS.clientSiteVideo}
+                  poster={ASSET_PATHS.clientPackageUnit}
+                  className="w-full h-full object-cover select-none"
+                  controls
+                  preload="metadata"
                 />
                 <div className="absolute inset-0 bg-blue-900/10 pointer-events-none" />
                 
@@ -87,12 +88,6 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
                   PRESSURE UNIT ON-LOAD
                 </div>
 
-                {/* Video Play Mockup overlays */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 bg-white/90 hover:bg-white text-blue-650 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition duration-300 shrink-0 cursor-pointer">
-                    <Play className="w-4 h-4 fill-blue-650 ml-0.5 text-blue-600" />
-                  </div>
-                </div>
               </div>
 
               {/* Smaller overlapping bottom-right badge frame */}
