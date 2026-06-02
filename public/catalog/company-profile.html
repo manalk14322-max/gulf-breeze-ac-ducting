@@ -105,9 +105,9 @@
       }
 
       .cover-title {
-        margin: 48mm 0 0;
-        max-width: 145mm;
-        font-size: 55px;
+        margin: 28mm 0 0;
+        max-width: 128mm;
+        font-size: 49px;
         line-height: 0.95;
         letter-spacing: -1.5px;
         font-weight: 900;
@@ -119,10 +119,30 @@
       }
 
       .cover-copy {
-        width: 125mm;
+        width: 112mm;
         margin-top: 18px;
         color: #c8d7e8;
-        font-size: 16px;
+        font-size: 15px;
+      }
+
+      .cover-services {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 112mm;
+        margin-top: 14px;
+      }
+
+      .cover-services span {
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: #dcefff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
       }
 
       .cover-grid {
@@ -142,10 +162,10 @@
       .cover-photo {
         position: absolute;
         right: 18mm;
-        bottom: 22mm;
-        width: 82mm;
-        height: 58mm;
-        border-radius: 20px;
+        bottom: 50mm;
+        width: 86mm;
+        height: 72mm;
+        border-radius: 24px;
         object-fit: cover;
         border: 1px solid rgba(255,255,255,0.2);
         box-shadow: 0 28px 70px rgba(0,0,0,0.38);
@@ -154,11 +174,11 @@
       .meta-strip {
         position: absolute;
         left: 18mm;
-        bottom: 22mm;
+        bottom: 40mm;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
-        width: 108mm;
+        width: 84mm;
       }
 
       .meta-card {
@@ -472,6 +492,13 @@
         <p class="cover-copy">
           Professional air conditioning, GI and PI ducting, copper piping, repair, insulation and maintenance services for residential, commercial and industrial projects across the UAE.
         </p>
+        <div class="cover-services">
+          <span>AC Installation</span>
+          <span>GI / PI Ducting</span>
+          <span>Copper Pipe Welding</span>
+          <span>Duct Repair</span>
+          <span>Maintenance</span>
+        </div>
 
         <div class="meta-strip">
           <div class="meta-card"><strong>10+</strong><span>Years Experience</span></div>
