@@ -1,0 +1,17 @@
+{
+  "name": "Gulf Breeze AC & Ducting",
+  "short_name": "Gulf Breeze",
+  "description": "AC installation, HVAC maintenance, GI and PI ducting, duct repair and air conditioner maintenance services across the UAE.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#001b44",
+  "theme_color": "#001b44",
+  "icons": [
+    {
+      "src": "/gulf-breeze-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

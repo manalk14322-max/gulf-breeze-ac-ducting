@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from './contact';
 import { ASSET_PATHS } from './data';
+import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
 
 type Page = 'home' | 'about' | 'services' | 'projects' | 'why-us' | 'contact';
 
@@ -28,6 +29,37 @@ const getCurrentPage = (): Page => {
   }
 
   return 'home';
+};
+
+const upsertMeta = (name: string, content: string, attribute: 'name' | 'property' = 'name') => {
+  let meta = document.querySelector<HTMLMetaElement>(`meta[${attribute}="${name}"]`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attribute, name);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+};
+
+const upsertLink = (rel: string, href: string) => {
+  let link = document.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = rel;
+    document.head.appendChild(link);
+  }
+  link.href = href;
+};
+
+const upsertJsonLd = (id: string, data: unknown) => {
+  let script = document.querySelector<HTMLScriptElement>(`script[data-schema-id="${id}"]`);
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.dataset.schemaId = id;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
 };
 
 function PageHeader({
@@ -148,6 +180,37 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    const seo = SEO_BY_PAGE[currentPage];
+    const canonical = SITE_URL;
+
+    document.title = seo.title;
+    upsertMeta('description', seo.description);
+    upsertMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    upsertMeta('og:title', seo.title, 'property');
+    upsertMeta('og:description', seo.description, 'property');
+    upsertMeta('og:type', 'website', 'property');
+    upsertMeta('og:url', canonical, 'property');
+    upsertMeta('og:site_name', SITE_NAME, 'property');
+    upsertMeta('og:image', `${SITE_URL}/gulf-breeze-logo.png`, 'property');
+    upsertMeta('twitter:card', 'summary_large_image');
+    upsertMeta('twitter:title', seo.title);
+    upsertMeta('twitter:description', seo.description);
+    upsertLink('canonical', canonical);
+    upsertJsonLd('local-business', localBusinessSchema);
+    upsertJsonLd('website', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${SITE_URL}/#/services?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
+    });
+  }, [currentPage]);
 
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));

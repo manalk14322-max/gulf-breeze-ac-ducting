@@ -47,7 +47,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-slate-500 text-xs leading-relaxed">
-              Delivering premium AC installation, custom sheet metal duct fabrication, industrial water chiller overhaul, and responsive Annual Maintenance HVAC solutions across the GCC region.
+              Delivering AC installation, AC repair, GI and PI ducting, copper pipe welding, duct insulation and annual HVAC maintenance services across Dubai, Sharjah, Umm Al Quwain and the UAE.
             </p>
             <div className="flex gap-3 pt-2">
               <a href="#" className="p-2 bg-slate-900 hover:bg-blue-600 hover:text-white transition-all rounded-full border border-slate-800 text-slate-500">

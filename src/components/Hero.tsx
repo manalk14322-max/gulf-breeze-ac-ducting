@@ -56,7 +56,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
             </h1>
             
             <p className="text-slate-650 text-xs min-[420px]:text-sm sm:text-md max-w-lg leading-relaxed font-sans">
-              Professional AC Installation, HVAC & Ducting solutions engineered specifically for Residential, Commercial & Industrial Projects across the UAE. Guaranteed performance in peak summer.
+              Professional AC installation, AC repair, HVAC maintenance, GI ducting, PI ducting and copper pipe welding for residential, commercial and industrial projects across Dubai, Sharjah, Umm Al Quwain and the UAE.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
@@ -83,7 +83,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
             <div className="premium-card float-soft relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl aspect-video sm:aspect-4/3 lg:aspect-square group bg-slate-800">
               <img 
                 src={ASSET_PATHS.heroChiller} 
-                alt="Gulf Breeze cooling solutions" 
+                alt="Gulf Breeze AC installation and ducting services in UAE" 
                 className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 select-none"
                 referrerPolicy="no-referrer"
                 id="hero-main-chiller-img"

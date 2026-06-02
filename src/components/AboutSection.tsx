@@ -40,10 +40,10 @@ export default function AboutSection() {
               Is Our Expertise
             </h2>
             <p className="text-slate-600 text-sm sm:text-md leading-relaxed font-sans">
-              Gulf Breeze AC & Ducting provides professional, end-to-end HVAC solutions with an unwavering commitment to engineering quality, safety, and energy efficiency. We combine decades of local GCC field expertise with cutting-edge airflow technologies to deliver cooling that lasts.
+              Gulf Breeze AC & Ducting provides professional, end-to-end AC and HVAC solutions across the UAE with a strong focus on engineering quality, safety, airflow performance, ducting workmanship and energy efficiency.
             </p>
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-              From high-end smart residential villas to commercial corporate towers and industrial clean rooms, we fabricate, install, and optimize bespoke climate systems engineered for maximum durability under severe extreme summers.
+              From residential villas and farmhouse cooling to restaurants, warehouses and industrial facilities, we fabricate, install and repair GI ducting, PI ducting, duct AC systems and air conditioning systems built for severe UAE summer conditions.
             </p>
             
             {/* Signature Area */}
@@ -68,7 +68,7 @@ export default function AboutSection() {
               <div className="premium-card relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300" data-reveal>
                 <img 
                   src={ASSET_PATHS.aboutTechnicians} 
-                  alt="Certified HVAC Diagnostician" 
+                  alt="Certified HVAC technician inspecting AC and ducting systems" 
                   className="w-full h-full object-cover select-none"
                   referrerPolicy="no-referrer"
                 />
@@ -82,7 +82,7 @@ export default function AboutSection() {
               <div className="premium-card relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300" data-reveal style={{ '--reveal-delay': '120ms' } as CSSProperties}>
                 <img 
                   src={ASSET_PATHS.aboutDuctwork} 
-                  alt="Duct Fabrication workshop" 
+                  alt="GI and PI duct fabrication workshop in UAE" 
                   className="w-full h-full object-cover select-none"
                   referrerPolicy="no-referrer"
                 />
