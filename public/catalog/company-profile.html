@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gulf Breeze AC & Ducting - Company Profile</title>
+    <style>
+      :root {
+        --navy: #071321;
+        --deep: #001b44;
+        --blue: #0874d8;
+        --cyan: #35b8ff;
+        --silver: #d7e2ee;
+        --muted: #77879a;
+        --gold: #d7b56d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #e9eef5;
+        color: #102033;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.45;
+      }
+
+      .page {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto 18px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 18px 40px rgba(10, 24, 45, 0.18);
+        page-break-after: always;
+      }
+
+      .dark {
+        background:
+          radial-gradient(circle at 78% 12%, rgba(53, 184, 255, 0.24), transparent 28%),
+          radial-gradient(circle at 8% 92%, rgba(215, 181, 109, 0.14), transparent 24%),
+          linear-gradient(135deg, #06111f 0%, #001b44 58%, #02101f 100%);
+        color: #fff;
+      }
+
+      .inner {
+        position: relative;
+        z-index: 2;
+        padding: 22mm 18mm;
+        height: 100%;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 74px;
+        height: 74px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: #06111f;
+      }
+
+      .brand-small {
+        font-size: 12px;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+        color: var(--cyan);
+        font-weight: 700;
+      }
+
+      .brand-title {
+        margin-top: 3px;
+        font-size: 23px;
+        font-weight: 900;
+        letter-spacing: 0.4px;
+        color: #fff;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(53, 184, 255, 0.38);
+        color: #bfeaff;
+        background: rgba(8, 116, 216, 0.14);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+      }
+
+      .cover-title {
+        margin: 48mm 0 0;
+        max-width: 145mm;
+        font-size: 55px;
+        line-height: 0.95;
+        letter-spacing: -1.5px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .cover-title span {
+        color: var(--cyan);
+      }
+
+      .cover-copy {
+        width: 125mm;
+        margin-top: 18px;
+        color: #c8d7e8;
+        font-size: 16px;
+      }
+
+      .cover-grid {
+        position: absolute;
+        right: -22mm;
+        bottom: -20mm;
+        width: 130mm;
+        height: 120mm;
+        border-radius: 40mm 0 0 0;
+        opacity: 0.42;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 13px 13px;
+      }
+
+      .cover-photo {
+        position: absolute;
+        right: 18mm;
+        bottom: 22mm;
+        width: 82mm;
+        height: 58mm;
+        border-radius: 20px;
+        object-fit: cover;
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 28px 70px rgba(0,0,0,0.38);
+      }
+
+      .meta-strip {
+        position: absolute;
+        left: 18mm;
+        bottom: 22mm;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 108mm;
+      }
+
+      .meta-card {
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06);
+      }
+
+      .meta-card strong {
+        display: block;
+        color: #fff;
+        font-size: 17px;
+      }
+
+      .meta-card span {
+        color: #a6bad1;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+      }
+
+      .page-label {
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      h1, h2, h3, p {
+        margin-top: 0;
+      }
+
+      h2 {
+        margin-bottom: 16px;
+        color: #071321;
+        font-size: 34px;
+        line-height: 1.05;
+        letter-spacing: -0.7px;
+        text-transform: uppercase;
+      }
+
+      .dark h2 {
+        color: #fff;
+      }
+
+      .lead {
+        max-width: 155mm;
+        color: #41566d;
+        font-size: 15px;
+      }
+
+      .dark .lead {
+        color: #c9d9eb;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 18mm;
+        align-items: center;
+        margin-top: 16mm;
+      }
+
+      .photo {
+        width: 100%;
+        height: 92mm;
+        object-fit: cover;
+        border-radius: 24px;
+        box-shadow: 0 22px 44px rgba(15, 30, 55, 0.16);
+      }
+
+      .panel {
+        padding: 18px;
+        border: 1px solid #dde7f1;
+        border-radius: 18px;
+        background: #f7fafe;
+      }
+
+      .panel h3 {
+        margin-bottom: 8px;
+        color: #071321;
+        font-size: 18px;
+      }
+
+      .panel p {
+        margin-bottom: 0;
+        color: #52677d;
+        font-size: 12.5px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 18mm;
+      }
+
+      .stat {
+        padding: 16px;
+        border-radius: 18px;
+        background: #071321;
+        color: #fff;
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--cyan);
+        font-size: 25px;
+      }
+
+      .stat span {
+        color: #b8c6d5;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 12mm;
+      }
+
+      .service {
+        position: relative;
+        padding: 17px 17px 17px 20px;
+        border-radius: 18px;
+        background: #f8fbff;
+        border: 1px solid #dde8f3;
+      }
+
+      .service:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 16px;
+        bottom: 16px;
+        width: 4px;
+        border-radius: 4px;
+        background: linear-gradient(var(--cyan), var(--blue));
+      }
+
+      .service h3 {
+        margin-bottom: 6px;
+        color: #071321;
+        font-size: 16px;
+      }
+
+      .service p {
+        margin-bottom: 0;
+        color: #52677d;
+        font-size: 12px;
+      }
+
+      .check-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 12mm;
+      }
+
+      .check {
+        padding: 13px 14px;
+        border-radius: 14px;
+        color: #eaf6ff;
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.13);
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+
+      .project-list {
+        display: grid;
+        gap: 11px;
+        margin-top: 11mm;
+      }
+
+      .project {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 13px;
+        border-radius: 17px;
+        background: #f7fafe;
+        border: 1px solid #dce7f2;
+      }
+
+      .project-num {
+        display: grid;
+        place-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue), #04285e);
+        font-weight: 900;
+      }
+
+      .project h3 {
+        margin-bottom: 3px;
+        font-size: 15px;
+        color: #071321;
+      }
+
+      .project p {
+        margin-bottom: 0;
+        color: #60768d;
+        font-size: 12px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 12mm;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 62mm;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .contact-card {
+        margin-top: 16mm;
+        padding: 22px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
+      }
+
+      .contact-row {
+        display: grid;
+        grid-template-columns: 34mm 1fr;
+        gap: 10px;
+        padding: 11px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .contact-row:last-child {
+        border-bottom: 0;
+      }
+
+      .contact-row span {
+        color: #93cfff;
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .contact-row strong {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .footer-note {
+        position: absolute;
+        left: 18mm;
+        right: 18mm;
+        bottom: 10mm;
+        display: flex;
+        justify-content: space-between;
+        color: #92a5ba;
+        font-size: 10px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page dark">
+      <div class="cover-grid"></div>
+      <img class="cover-photo" src="../assets/images/hero_dubai_chiller_1779714256893.png" alt="Dubai HVAC project" />
+      <div class="inner">
+        <div class="topline">
+          <div class="logo-wrap">
+            <img class="logo" src="../gulf-breeze-logo.png" alt="Gulf Breeze logo" />
+            <div>
+              <div class="brand-small">Company Profile</div>
+              <div class="brand-title">Gulf Breeze AC & Ducting</div>
+            </div>
+          </div>
+          <div class="badge">UAE HVAC Solutions</div>
+        </div>
+
+        <h1 class="cover-title">AC, HVAC & <span>Ducting</span> Specialists</h1>
+        <p class="cover-copy">
+          Professional air conditioning, GI and PI ducting, copper piping, repair, insulation and maintenance services for residential, commercial and industrial projects across the UAE.
+        </p>
+
+        <div class="meta-strip">
+          <div class="meta-card"><strong>10+</strong><span>Years Experience</span></div>
+          <div class="meta-card"><strong>24/7</strong><span>Service Support</span></div>
+          <div class="meta-card"><strong>UAE</strong><span>Project Coverage</span></div>
+        </div>
+      </div>
+      <div class="footer-note"><span>gulfbreezeacducting.com</span><span>Profile Catalog 2026</span></div>
+    </section>
+
+    <section class="page">
+      <div class="inner">
+        <div class="page-label">About Company</div>
+        <h2>Reliable Cooling & Ducting Workmanship</h2>
+        <p class="lead">
+          Gulf Breeze AC & Ducting provides professional air conditioning, HVAC and ducting services for villas, restaurants, industrial spaces, offices and farmhouse projects. Our team handles site inspection, installation, repair and maintenance with practical engineering, neat finishing and dependable after-service support.
+        </p>
+
+        <div class="split">
+          <div>
+            <div class="panel">
+              <h3>Our Mission</h3>
+              <p>To deliver comfortable indoor environments through efficient cooling systems, proper duct design, quality installation and timely maintenance.</p>
+            </div>
+            <br />
+            <div class="panel">
+              <h3>Our Approach</h3>
+              <p>We focus on correct sizing, clean duct routing, careful copper pipe welding, strong insulation and professional finishing for long-term system performance.</p>
+            </div>
+          </div>
+          <img class="photo" src="../assets/images/about_technicians_1779714281307.png" alt="HVAC technicians" />
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>1500+</strong><span>Completed Jobs</span></div>
+          <div class="stat"><strong>100%</strong><span>Quality Focus</span></div>
+          <div class="stat"><strong>GI / PI</strong><span>Ducting Scope</span></div>
+          <div class="stat"><strong>AMC</strong><span>Maintenance Plans</span></div>
+        </div>
+      </div>
+      <div class="footer-note"><span>Gulf Breeze AC & Ducting</span><span>02</span></div>
+    </section>
+
+    <section class="page">
+      <div class="inner">
+        <div class="page-label">Core Services</div>
+        <h2>Complete AC & Ducting Services</h2>
+        <p class="lead">
+          From new installation to repair and maintenance, our services are built for UAE weather conditions and practical project needs.
+        </p>
+
+        <div class="grid-2">
+          <div class="service"><h3>PI Ducting Making & Installation</h3><p>Fabrication and installation of PI ducting for efficient air distribution and clean finishing.</p></div>
+          <div class="service"><h3>GI Ducting Installation</h3><p>Professional installation of galvanized iron ducting for commercial and industrial applications.</p></div>
+          <div class="service"><h3>PI & GI Ducting Repair</h3><p>Leak repair, alignment correction, joint fixing and system performance improvement.</p></div>
+          <div class="service"><h3>A/C Grille Fixing</h3><p>Supply, alignment and fixing of AC grilles for balanced airflow and neat interiors.</p></div>
+          <div class="service"><h3>A/C Installation & Repair</h3><p>Installation, troubleshooting and repair for split, duct and package air conditioning systems.</p></div>
+          <div class="service"><h3>Duct A/C Fixing & Repairing</h3><p>Duct AC service, airflow issue repair, unit fixing and performance restoration.</p></div>
+          <div class="service"><h3>Copper Pipe Installation & Welding</h3><p>Copper line installation, welding, pressure checking and proper insulation support.</p></div>
+          <div class="service"><h3>Duct Insulation & Fostering</h3><p>Insulation and finishing work to reduce energy loss and improve cooling performance.</p></div>
+        </div>
+      </div>
+      <div class="footer-note"><span>Professional HVAC Services</span><span>03</span></div>
+    </section>
+
+    <section class="page dark">
+      <div class="inner">
+        <div class="page-label" style="color:#8ed9ff">Technical Scope</div>
+        <h2>Built For Practical Site Requirements</h2>
+        <p class="lead">
+          We support project owners, contractors and facility teams with responsive work for restaurants, villas, industrial units and private properties.
+        </p>
+
+        <div class="split">
+          <img class="photo" src="../assets/images/about_ductwork_1779714306648.png" alt="Ductwork" />
+          <div>
+            <div class="check-list" style="grid-template-columns:1fr">
+              <div class="check">All kinds of air conditioner maintenance</div>
+              <div class="check">Package unit and ducting work</div>
+              <div class="check">Fresh air, return air and supply duct support</div>
+              <div class="check">Repair, fixing and site modification</div>
+              <div class="check">Commercial, residential and industrial service</div>
+              <div class="check">Dubai, Sharjah, Umm Al Quwain and UAE coverage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-note"><span>Gulf Breeze AC & Ducting</span><span>04</span></div>
+    </section>
+
+    <section class="page">
+      <div class="inner">
+        <div class="page-label">Project Experience</div>
+        <h2>Selected Work References</h2>
+        <p class="lead">
+          Gulf Breeze AC & Ducting has handled AC, ducting, package unit and farmhouse cooling work across important UAE locations.
+        </p>
+
+        <div class="project-list">
+          <div class="project"><div class="project-num">01</div><div><h3>A/C and Ducting Work at La Cantina</h3><p>Bluewaters Dubai</p></div></div>
+          <div class="project"><div class="project-num">02</div><div><h3>A/C and Ducting Work at Gohan</h3><p>Bluewaters Dubai</p></div></div>
+          <div class="project"><div class="project-num">03</div><div><h3>Package Unit and Ducting Work</h3><p>Sharjah Sajaa Industrial Area</p></div></div>
+          <div class="project"><div class="project-num">04</div><div><h3>A/C Fixing and Ducting Work at Farmhouse</h3><p>Al Kaber, Umm Al Quwain</p></div></div>
+        </div>
+
+        <div class="gallery">
+          <img src="../assets/images/project_office_1779714329550.png" alt="Commercial AC project" />
+          <img src="../assets/images/project_villa_1779714355444.png" alt="Villa AC project" />
+        </div>
+      </div>
+      <div class="footer-note"><span>Project References</span><span>05</span></div>
+    </section>
+
+    <section class="page dark">
+      <div class="inner">
+        <div class="topline">
+          <div class="logo-wrap">
+            <img class="logo" src="../gulf-breeze-logo.png" alt="Gulf Breeze logo" />
+            <div>
+              <div class="brand-small">Get In Touch</div>
+              <div class="brand-title">Gulf Breeze AC & Ducting</div>
+            </div>
+          </div>
+          <div class="badge">Cooling Comfort Across UAE</div>
+        </div>
+
+        <h2 style="margin-top:34mm; font-size:42px;">Ready For Your Next AC & Ducting Project</h2>
+        <p class="lead">
+          Contact our team for inspection, quotation, maintenance support or project execution. We are ready to assist with AC installation, ducting, repair, insulation and copper pipe work.
+        </p>
+
+        <div class="contact-card">
+          <div class="contact-row"><span>Phone</span><strong>+971 50 123 4567</strong></div>
+          <div class="contact-row"><span>Email</span><strong>info@gulfbreezeac.ae</strong></div>
+          <div class="contact-row"><span>Website</span><strong>gulfbreezeacducting.com</strong></div>
+          <div class="contact-row"><span>Service Area</span><strong>Dubai, Sharjah, Umm Al Quwain and UAE</strong></div>
+          <div class="contact-row"><span>Services</span><strong>AC Installation, AC Repair, GI/PI Ducting, Copper Pipes, Insulation, Maintenance</strong></div>
+        </div>
+      </div>
+      <div class="footer-note"><span>Thank You</span><span>06</span></div>
+    </section>
+  </body>
+</html>
