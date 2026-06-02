@@ -5,6 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { X, Send, Calculator, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_WHATSAPP } from '../contact';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -71,7 +72,21 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
 
   const handleSubmitQuote = (e: React.FormEvent) => {
     e.preventDefault();
+    const message = [
+      'New Gulf Breeze AC & Ducting Quote Request',
+      `Name: ${formData.fullName}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Service: ${formData.serviceType}`,
+      `Property: ${formData.propertyType}`,
+      `Area: ${formData.areaSqFt} sq ft`,
+      isCalculated ? `Recommended Capacity: ${calculation.requiredTonnage} TR` : '',
+      isCalculated ? `Estimated Price: ${calculation.estimatedPriceRange}` : '',
+      `Details: ${formData.additionalDetails || 'N/A'}`,
+    ].filter(Boolean).join('\n');
+
     setIsSubmitted(true);
+    window.open(`https://wa.me/${CONTACT_PHONE_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -101,7 +116,7 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
               </div>
               <h4 className="text-2xl font-bold text-slate-900 font-sans">Engineering Request Received!</h4>
               <p className="text-slate-600 mt-2 max-w-md mx-auto text-sm">
-                Our certified HVAC engineers are reviewing your specifications. An advisor will contact you within **15 minutes** with a formal quotation and load layout.
+                Our certified HVAC engineers are reviewing your specifications. An advisor will contact you on {CONTACT_PHONE_DISPLAY} within 15 minutes with a formal quotation and load layout.
               </p>
               
               {isCalculated && (
@@ -260,7 +275,7 @@ export default function QuoteModal({ isOpen, onClose, defaultService = 'ac-insta
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-hidden focus:ring-1 focus:ring-blue-500 font-mono"
-                      placeholder="e.g. +971 50 123 4567"
+                      placeholder={`e.g. ${CONTACT_PHONE_DISPLAY}`}
                       required
                     />
                   </div>

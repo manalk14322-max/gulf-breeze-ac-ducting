@@ -4,6 +4,7 @@
  */
 
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from '../contact';
 
 export default function Footer() {
   const quickLinks = [
@@ -106,11 +107,11 @@ export default function Footer() {
               </div>
               <div className="flex gap-2.5 items-start">
                 <Phone className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <a href="tel:+971501234567" className="hover:underline">+971 50 123 4567</a>
+                <a href={`tel:${CONTACT_PHONE_TEL}`} className="hover:underline">{CONTACT_PHONE_DISPLAY}</a>
               </div>
               <div className="flex gap-2.5 items-start">
                 <Mail className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <a href="mailto:info@gulfbreezeac.ae" className="hover:underline">info@gulfbreezeac.ae</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
               </div>
               <div className="flex gap-2.5 items-start">
                 <Clock className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />

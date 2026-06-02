@@ -15,6 +15,7 @@ import ProjectsSection from './components/ProjectsSection';
 import BrandsSection from './components/BrandsSection';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from './contact';
 import { ASSET_PATHS } from './data';
 
 type Page = 'home' | 'about' | 'services' | 'projects' | 'why-us' | 'contact';
@@ -65,8 +66,8 @@ function PageHeader({
 function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
   const contactItems = [
     { icon: <MapPin className="w-5 h-5" />, label: 'Office Location', value: 'Dubai, United Arab Emirates' },
-    { icon: <Phone className="w-5 h-5" />, label: 'Phone Support', value: '+971 50 123 4567' },
-    { icon: <Mail className="w-5 h-5" />, label: 'Email Address', value: 'info@gulfbreezeac.ae' },
+    { icon: <Phone className="w-5 h-5" />, label: 'Phone Support', value: CONTACT_PHONE_DISPLAY },
+    { icon: <Mail className="w-5 h-5" />, label: 'Email Address', value: CONTACT_EMAIL },
     { icon: <Clock className="w-5 h-5" />, label: 'Working Hours', value: 'Mon - Sat: 8:00 AM - 6:00 PM' },
   ];
 
