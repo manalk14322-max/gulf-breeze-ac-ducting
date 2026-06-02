@@ -15,7 +15,7 @@ import ProjectsSection from './components/ProjectsSection';
 import BrandsSection from './components/BrandsSection';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from './contact';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_WHATSAPP } from './contact';
 import { ASSET_PATHS } from './data';
 import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
 
@@ -163,6 +163,27 @@ function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
         </div>
       </section>
     </>
+  );
+}
+
+function WhatsAppFloat() {
+  const message = 'Hello Gulf Breeze AC & Ducting, I need AC or ducting service details.';
+  const href = `https://wa.me/${CONTACT_PHONE_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Chat on WhatsApp ${CONTACT_PHONE_DISPLAY}`}
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-emerald-900/30 ring-4 ring-white/90 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[#1ebe5d] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+    >
+      <svg viewBox="0 0 32 32" className="h-7 w-7 sm:h-8 sm:w-8" fill="currentColor" aria-hidden="true">
+        <path d="M19.11 17.26c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.84.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.52-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.12-.25-.18-.52-.32Z" />
+        <path d="M16.02 3C8.86 3 3.04 8.81 3.04 15.96c0 2.29.6 4.53 1.75 6.5L3 29l6.7-1.76a12.92 12.92 0 0 0 6.32 1.61h.01c7.15 0 12.97-5.81 12.97-12.96C29 8.81 23.18 3 16.02 3Zm0 22.66h-.01c-1.94 0-3.85-.52-5.52-1.5l-.4-.24-3.97 1.04 1.06-3.86-.26-.4a9.68 9.68 0 0 1-1.49-5.14c0-5.35 4.36-9.7 9.72-9.7 2.59 0 5.03 1.01 6.86 2.84a9.61 9.61 0 0 1 2.85 6.86c0 5.35-4.36 9.7-9.72 9.7Z" />
+      </svg>
+      <span className="sr-only">WhatsApp</span>
+    </a>
   );
 }
 
@@ -329,6 +350,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <WhatsAppFloat />
 
       <QuoteModal 
         isOpen={isQuoteOpen} 
