@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links (Col size: 2) */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-3 space-y-5 min-w-0">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider">Quick Links</h4>
             <div className="flex flex-col gap-3">
               {quickLinks.map((link, idx) => (
@@ -111,7 +111,7 @@ export default function Footer() {
               </div>
               <div className="flex gap-2.5 items-start">
                 <Mail className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline break-all min-w-0">{CONTACT_EMAIL}</a>
               </div>
               <div className="flex gap-2.5 items-start">
                 <Clock className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
@@ -121,7 +121,7 @@ export default function Footer() {
           </div>
 
           {/* Column 5: Map Mockup (Col size: 3) */}
-          <div className="lg:col-span-3 space-y-4 md:col-span-2">
+          <div className="lg:col-span-2 space-y-4 md:col-span-2">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider">Our Location</h4>
             
             {/* Interactive Vector Local Map Simulator */}
