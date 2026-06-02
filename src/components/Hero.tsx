@@ -50,9 +50,9 @@ export default function Hero({ onOpenQuote }: HeroProps) {
             </span>
             
             <h1 className="text-[26px] min-[360px]:text-3xl min-[420px]:text-4xl sm:text-5xl lg:text-6xl font-black text-slate-905 tracking-tight leading-[1.02] sm:leading-tight uppercase font-sans">
-              Delivering <br />
-              <span className="shine-text">Perfect Comfort</span> <br />
-              Across the Gulf
+              Professional <br />
+              <span className="shine-text">AC Installation</span> <br />
+              & Ducting Solutions
             </h1>
             
             <p className="text-slate-650 text-xs min-[420px]:text-sm sm:text-md max-w-lg leading-relaxed font-sans">

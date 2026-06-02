@@ -15,8 +15,12 @@ import ProjectsSection from './components/ProjectsSection';
 import BrandsSection from './components/BrandsSection';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
+import ProcessSection from './components/ProcessSection';
+import TestimonialsSection from './components/TestimonialsSection';
+import FaqSection from './components/FaqSection';
+import ContactCtaSection from './components/ContactCtaSection';
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, CONTACT_PHONE_WHATSAPP } from './contact';
-import { ASSET_PATHS } from './data';
+import { ASSET_PATHS, FAQS } from './data';
 import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
 
 type Page = 'home' | 'about' | 'services' | 'projects' | 'why-us' | 'contact';
@@ -258,6 +262,18 @@ export default function App() {
         'query-input': 'required name=search_term_string',
       },
     });
+    upsertJsonLd('faq', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
   }, [currentPage]);
 
   useEffect(() => {
@@ -379,11 +395,14 @@ export default function App() {
         return (
           <>
             <Hero onOpenQuote={() => handleOpenQuote()} />
-            <BrandsSection />
-            <AboutSection />
-            <ServicesSection onOpenQuote={(serviceId) => handleOpenQuote(serviceId)} />
             <WhyChooseUs onOpenQuote={() => handleOpenQuote()} />
+            <BrandsSection />
+            <ServicesSection onOpenQuote={(serviceId) => handleOpenQuote(serviceId)} />
+            <ProcessSection />
             <ProjectsSection />
+            <TestimonialsSection />
+            <FaqSection />
+            <ContactCtaSection onOpenQuote={() => handleOpenQuote()} />
           </>
         );
     }
