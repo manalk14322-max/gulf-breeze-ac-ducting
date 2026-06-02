@@ -19,6 +19,7 @@ import ProcessSection from './components/ProcessSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FaqSection from './components/FaqSection';
 import ContactCtaSection from './components/ContactCtaSection';
+import TrustProofSection from './components/TrustProofSection';
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, CONTACT_PHONE_WHATSAPP } from './contact';
 import { ASSET_PATHS, FAQS } from './data';
 import { localBusinessSchema, SEO_BY_PAGE, SITE_NAME, SITE_URL } from './seo';
@@ -395,6 +396,7 @@ export default function App() {
         return (
           <>
             <Hero onOpenQuote={() => handleOpenQuote()} />
+            <TrustProofSection />
             <WhyChooseUs onOpenQuote={() => handleOpenQuote()} />
             <BrandsSection />
             <ServicesSection onOpenQuote={(serviceId) => handleOpenQuote(serviceId)} />

@@ -42,11 +42,14 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {reviews.map((review, idx) => (
+        <div className="overflow-hidden">
+          <div className="flex gap-5 md:grid md:grid-cols-3 animate-[marquee_24s_linear_infinite] md:animate-none w-max md:w-auto">
+          {[...reviews, ...reviews].map((review, idx) => (
             <div
-              key={review.name}
-              className="premium-card rounded-2xl border border-slate-100 bg-slate-50 p-6 text-left shadow-sm"
+              key={`${review.name}-${idx}`}
+              className={`premium-card w-[300px] md:w-auto rounded-2xl border border-slate-100 bg-slate-50 p-6 text-left shadow-sm ${
+                idx >= reviews.length ? 'md:hidden' : ''
+              }`}
               data-reveal
               style={{ '--reveal-delay': `${idx * 80}ms` } as CSSProperties}
             >
@@ -64,6 +67,7 @@ export default function TestimonialsSection() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
